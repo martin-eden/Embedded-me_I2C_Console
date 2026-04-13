@@ -15,11 +15,14 @@
 
 namespace me_I2C_Console
 {
-  void Scan();
-  void Read();
-  void Write();
-
   void AddCommands(me_Menu::TMenu *);
+
+  namespace Freetown
+  {
+    void Scan();
+    void Read();
+    void Write();
+  }
 }
 
 /*
