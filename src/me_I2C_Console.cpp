@@ -102,6 +102,10 @@ void me_I2C_Console::Write()
     Same as in Read() we're setting write address to zero first
   */
 
+  /*
+    BUG MANIFESTATION: Reading bytes does not write first byte?
+  */
+
   me_I2C::TI2C_Master I2C;
   TUint_1 DeviceId;
   TUint_2 NumBytes;
@@ -122,8 +126,7 @@ void me_I2C_Console::Write()
   [Internal] Handler to call Scan
 */
 static void Scan_Command(
-  TUint_2 Data [[gnu::unused]],
-  TUint_2 Instance [[gnu::unused]]
+  TAddress Instance [[gnu::unused]]
 )
 {
   Scan();
@@ -133,8 +136,7 @@ static void Scan_Command(
   [Internal] Handler to call Read
 */
 static void Read_Command(
-  TUint_2 Data [[gnu::unused]],
-  TUint_2 Instance [[gnu::unused]]
+  TAddress Instance [[gnu::unused]]
 )
 {
   Read();
@@ -144,8 +146,7 @@ static void Read_Command(
   [Internal] Handler to call Write
 */
 static void Write_Command(
-  TUint_2 Addr1 [[gnu::unused]],
-  TUint_2 Addr2 [[gnu::unused]]
+  TAddress Instance [[gnu::unused]]
 )
 {
   Write();
@@ -160,15 +161,11 @@ void me_I2C_Console::AddCommands(
 {
   const TAddress Unused = 0;
 
-  Menu->AddItem(
-    me_Menu::Freetown::ToItem("s", "Scan", Scan_Command, Unused)
-  );
-  Menu->AddItem(
-    me_Menu::Freetown::ToItem("r", "Read", Read_Command, Unused)
-  );
-  Menu->AddItem(
-    me_Menu::Freetown::ToItem("w", "Write", Write_Command, Unused)
-  );
+  using me_Menu::Freetown::ToItem;
+
+  Menu->AddItem(ToItem("s", "Scan", Scan_Command, Unused));
+  Menu->AddItem(ToItem("r", "Read", Read_Command, Unused));
+  Menu->AddItem(ToItem("w", "Write", Write_Command, Unused));
 }
 
 /*
