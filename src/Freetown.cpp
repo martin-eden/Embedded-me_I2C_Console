@@ -29,7 +29,7 @@ void Freetown::Scan()
 
   me_I2C::TI2C_Master I2C;
   TUint_1 DeviceId;
-  me_StreamsCollection::TZeroesInputStream DummyStream;
+  me_StreamsCollection::TEmptyInputStream EmptyStream;
 
   const TUint_1
     StartId = 8,
@@ -38,7 +38,7 @@ void Freetown::Scan()
   I2C.Init();
 
   for (DeviceId = StartId; DeviceId <= StopId; ++DeviceId)
-    if (I2C.Send(DeviceId, 0, &DummyStream))
+    if (I2C.Send(DeviceId, &EmptyStream))
       Console.Print(DeviceId);
 
   Console.EndLine();
@@ -49,7 +49,7 @@ void Freetown::Scan()
 /*
   Read data from device
 
-  Input: DeviceAddress NumBytes
+  Input: DeviceId NumBytes
   Output: Bytes+
 */
 void Freetown::Read()
@@ -72,14 +72,12 @@ void Freetown::Read()
   TUint_1 DeviceId;
   TUint_2 NumBytes;
 
-  me_StreamsCollection::TZeroesInputStream Zeroes;
   me_StreamsCollection::TByteToDecimalStream BytesAsciiStream;
 
   if (!Console.Read(&DeviceId)) return;
   if (!Console.Read(&NumBytes)) return;
 
   I2C.Init();
-  I2C.Send(DeviceId, 1, &Zeroes);
   I2C.Receive(DeviceId, NumBytes, &BytesAsciiStream);
   I2C.Done();
 
@@ -89,31 +87,18 @@ void Freetown::Read()
 /*
   Write data to device
 
-  Input: DeviceAddress NumBytes Bytes+
+  Input: DeviceId Bytes+
 */
 void Freetown::Write()
 {
-  /*
-    Same as in Read() we're setting write address to zero first
-  */
-
-  /*
-    BUG MANIFESTATION: Reading bytes does not write first byte?
-  */
-
   me_I2C::TI2C_Master I2C;
   TUint_1 DeviceId;
-  TUint_2 NumBytes;
-
-  me_StreamsCollection::TZeroesInputStream Zeroes;
   me_StreamsCollection::TDecimalToByteStream AsciiBytesStream;
 
   if (!Console.Read(&DeviceId)) return;
-  if (!Console.Read(&NumBytes)) return;
 
   I2C.Init();
-  I2C.Send(DeviceId, 1, &Zeroes);
-  I2C.Send(DeviceId, NumBytes, &AsciiBytesStream);
+  I2C.Send(DeviceId, &AsciiBytesStream);
   I2C.Done();
 }
 

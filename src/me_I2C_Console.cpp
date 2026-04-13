@@ -19,9 +19,7 @@ using namespace me_I2C_Console;
 /*
   [Internal] Handler to call Scan
 */
-static void Scan_Command(
-  TAddress Instance [[gnu::unused]]
-)
+static void Scan_Command(TAddress)
 {
   Freetown::Scan();
 }
@@ -29,9 +27,7 @@ static void Scan_Command(
 /*
   [Internal] Handler to call Read
 */
-static void Read_Command(
-  TAddress Instance [[gnu::unused]]
-)
+static void Read_Command(TAddress)
 {
   Freetown::Read();
 }
@@ -39,9 +35,7 @@ static void Read_Command(
 /*
   [Internal] Handler to call Write
 */
-static void Write_Command(
-  TAddress Instance [[gnu::unused]]
-)
+static void Write_Command(TAddress)
 {
   Freetown::Write();
 }
@@ -82,8 +76,8 @@ void me_I2C_Console::AddCommands(
   const TMenuItem MenuItems[NumMenuItems] =
     {
       { "s", Scan_Command, "Scan" },
-      { "r", Read_Command, "Read <Addr> <NumBytes>" },
-      { "w", Write_Command, "Write <Addr> <NumBytes> <Bytes+>" },
+      { "r", Read_Command, "Read <DeviceId> <NumBytes>" },
+      { "w", Write_Command, "Write <DeviceId> <Bytes+>" },
     };
 
   for (TUint_1 Index = 0; Index < NumMenuItems; ++Index)
