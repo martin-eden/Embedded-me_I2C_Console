@@ -2,12 +2,14 @@
 
 (2026-04)
 
+![Boot screen][Image_Boot]
+
 Text interface for I2C protocol. ATmega328 library.
 
 This is text communication for I2C devices connected to Arduino Uno.
 Communication via UART at 115200 bps.
 
-More important that details is idea.
+More important than details is idea.
 
 Idea is clean ASCII text messages designed to be easy to parse and
 compile by another program. You can still use it manually if you want.
@@ -15,35 +17,35 @@ compile by another program. You can still use it manually if you want.
 
 ## Install/remove and requirements
 
-Software:
+* Software
 
-  Upload binary:
+  * Upload binary
 
-  * Linux
-  * Bash
-  * `avrdude`
+    * Linux
+    * Bash
+    * `avrdude`
 
-  Compile:
+  * Compile
 
-  * `arduino-cli` (`avr-gcc`)
+    * `arduino-cli` (`avr-gcc`)
 
-Hardware:
+* Hardware
 
   * Arduino Uno (ATmega328)
   * I2C devices connected to I2C pins
 
-Install:
+* Install
 
   * Clone repo
-  * If you want upload [binary][binary]
+  * If you want to upload [binary][binary]
     * Go to [`bin/`][bin]
     * Run [`Upload.sh`][Upload.sh]
     * ∎
-  * If you want compile code
+  * If you want to compile code
     * Clone other required libraries ([GetLibs][GetLibs])
     * Compile with `arduino-cli` (I use my wrapper [`ino.pile`][ino])
 
-Remove
+* Remove
 
   * Delete directory with repo
   * If you compiled code
@@ -162,6 +164,8 @@ Parsing/compiling binary data is easier in more suitable languages than C++.
   * [Infrared Cloner][InfraredCloner]
   * [My other embedded libraries][Embedded]
   * [My other projects][Repos]
+
+[Image_Boot]: images/me_I2C_Console.Boot.png
 
 [binary]: bin/Code.hex
 [bin]: bin/
