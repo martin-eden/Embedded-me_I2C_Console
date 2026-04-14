@@ -40,7 +40,6 @@ compile by another program. You can still use it manually if you want.
   * If you want to upload [`binary`][binary]
     * Go to [`bin/`][bin]
     * Run [`Upload.sh`][Upload.sh]
-    * ∎
   * If you want to compile code
     * Clone other required libraries ([`GetLibs`][GetLibs])
     * Compile with `arduino-cli` (I use my wrapper [`ino.pile`][ino])
@@ -62,20 +61,6 @@ compile by another program. You can still use it manually if you want.
 ## Commands
 
 Below are input and output for available commands.
-
-You can't distinguish input from output in this text blocks.
-But generally output is indented. And commands types are ended with
-newline.
-
-Don't forget that device protocols over I2C use "read-write address"
-which is auto-incremented position where data is written or read from.
-
-For that RTC DS3231 (id 104) this address is zero from reset and
-increments after each read-write. This address is set to first byte
-from Write packet.
-
-| Text input | Description           | Notes                          |
-| :---       | :---                  | :---                           |
 
 ### ? - List commands
 ```
