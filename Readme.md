@@ -37,12 +37,12 @@ compile by another program. You can still use it manually if you want.
 * Install
 
   * Clone repo
-  * If you want to upload [binary][binary]
+  * If you want to upload [`binary`][binary]
     * Go to [`bin/`][bin]
     * Run [`Upload.sh`][Upload.sh]
     * ∎
   * If you want to compile code
-    * Clone other required libraries ([GetLibs][GetLibs])
+    * Clone other required libraries ([`GetLibs`][GetLibs])
     * Compile with `arduino-cli` (I use my wrapper [`ino.pile`][ino])
 
 * Remove
