@@ -9,9 +9,8 @@ Communication via UART at 115200 bps.
 
 More important that details is idea.
 
-Idea is clean ASCII text messages designed not to be fancy to read
-but be easy to parse and compile by another program. You can still
-use it manually if you want.
+Idea is clean ASCII text messages designed to be easy to parse and
+compile by another program. You can still use it manually if you want.
 
 
 ## Install/remove and requirements
@@ -76,7 +75,7 @@ from Write packet.
 | Text input | Description           | Notes                          |
 | :---       | :---                  | :---                           |
 
-#### ? - list menu items
+### ? - List commands
 ```
 ?
 ( ?
@@ -92,7 +91,7 @@ from Write packet.
 | :---       | :---                  | :---                           |
 | `?↵`       | List menu items       | Note that text output format   |
 
-#### ^ - exit menu
+### ^ - Exit
 ```
 ^
 ( ^
@@ -105,7 +104,7 @@ Done
 | `^↵`       | Exit current menu     | Program stops until board reset |
 
 
-#### s - scan for I2C devices
+### s - Scan
 ```
 s
 ( s
@@ -117,7 +116,7 @@ s
 | `s↵`       | Scan I2C bus          | Lists all devices found. List may be empty |
 
 
-#### r - I2C read
+### r - Read `<`DeviceId`>` `<`NumBytes`>`
 ```
 r
 ( r
@@ -132,7 +131,7 @@ r
 | `r↵104↵10↵` | Read `10` bytes from device `104` | Typically read position depends of R/W pointer |
 
 
-#### w - I2C write
+### w - Write `<`DeviceId`>` `<`Bytes+`>`
 ```
 ( w
 104
