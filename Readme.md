@@ -133,19 +133,21 @@ r
 | `r↵104↵10↵` | Read `10` bytes from device `104` | Typically read position depends of R/W pointer |
 
 
-### w - Write `<`DeviceId`>` `<`Bytes+`>`
+### w - Write `<`DeviceId`>` `<`NumBytes`>` `<`Bytes+`>`
+
 ```
+w
 ( w
 104
+2
 5
-1
-e
+3
 )
 ```
 
 | Text input  | Description                            | Notes                          |
 | :---        | :---                                   | :---                           |
-| `w↵104↵5↵1↵e↵` | Write bytes `5` `1` to device `104` | Sets sixth byte to 1 for RTC DS3231. You can type any word that is not integer, not only `e` |
+| `w↵104↵2↵5↵3↵` | Write two bytes: `5` `3` to device `104` | Sets sixth byte to 3 for RTC DS3231. |
 
 
 ## Notes
