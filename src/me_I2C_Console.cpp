@@ -73,7 +73,7 @@ void me_I2C_Console::AddCommands(
     {
       { "s", Scan_Command, "Scan" },
       { "r", Read_Command, "Read <DeviceId> <NumBytes>" },
-      { "w", Write_Command, "Write <DeviceId> <Bytes+>" },
+      { "w", Write_Command, "Write <DeviceId> <NumBytes> <Bytes+>" },
     };
 
   for (TUint_1 Index = 0; Index < NumMenuItems; ++Index)

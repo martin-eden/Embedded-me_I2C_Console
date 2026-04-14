@@ -38,7 +38,7 @@ void Freetown::Scan()
   I2C.Init();
 
   for (DeviceId = StartId; DeviceId <= StopId; ++DeviceId)
-    if (I2C.Send(DeviceId, &EmptyStream))
+    if (I2C.Send(DeviceId, 0, &EmptyStream))
       Console.Print(DeviceId);
 
   Console.EndLine();
@@ -87,18 +87,20 @@ void Freetown::Read()
 /*
   Write data to device
 
-  Input: DeviceId Bytes+
+  Input: DeviceId NumBytes Bytes+
 */
 void Freetown::Write()
 {
   me_I2C::TI2C_Master I2C;
   TUint_1 DeviceId;
+  TUint_2 NumBytes;
   me_StreamsCollection::TDecimalToByteStream AsciiBytesStream;
 
   if (!Console.Read(&DeviceId)) return;
+  if (!Console.Read(&NumBytes)) return;
 
   I2C.Init();
-  I2C.Send(DeviceId, &AsciiBytesStream);
+  I2C.Send(DeviceId, NumBytes, &AsciiBytesStream);
   I2C.Done();
 }
 
