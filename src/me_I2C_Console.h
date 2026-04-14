@@ -2,15 +2,11 @@
 
 /*
   Author: Martin Eden
-  Last mod.: 2026-04-12
+  Last mod.: 2026-04-14
 */
 
 #pragma once
 
-#include <me_Console.h>
-
-#include <me_BaseTypes.h>
-#include <me_BaseInterfaces.h>
 #include <me_Menu.h>
 
 namespace me_I2C_Console

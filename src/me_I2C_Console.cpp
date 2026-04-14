@@ -2,16 +2,12 @@
 
 /*
   Author: Martin Eden
-  Last mod.: 2026-04-13
+  Last mod.: 2026-04-14
 */
 
 #include <me_I2C_Console.h>
 
-#include <me_Console.h>
-
 #include <me_BaseTypes.h>
-#include <me_BaseInterfaces.h>
-
 #include <me_Menu.h>
 
 using namespace me_I2C_Console;
