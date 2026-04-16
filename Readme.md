@@ -1,3 +1,5 @@
+[![DeepWiki][DeepWiki_Logo]][DeepWiki_Repo]
+
 ## What
 
 (2026-04)
@@ -151,6 +153,9 @@ Parsing/compiling binary data is easier in more suitable languages than C++.
   * [`me_Menu` module][me_Menu]
   * [My other embedded libraries][Embedded]
   * [My other projects][Repos]
+
+[DeepWiki_Logo]: https://deepwiki.com/badge.svg
+[DeepWiki_Repo]: https://deepwiki.com/martin-eden/Embedded-me_I2C_Console
 
 [Image_Boot]: images/me_I2C_Console.Boot.png
 
