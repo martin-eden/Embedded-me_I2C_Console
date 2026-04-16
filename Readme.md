@@ -148,6 +148,7 @@ Parsing/compiling binary data is easier in more suitable languages than C++.
   * [`me_I2C` module][me_I2C]
   * [`me_Console` module][me_Console]
   * [`me_Menu` module][me_Menu]
+  * [Command-line client][Lua_I2C_Console_Client]
   * [Infrared Cloner][InfraredCloner]
   * [My other embedded libraries][Embedded]
   * [My other projects][Repos]
@@ -166,6 +167,7 @@ Parsing/compiling binary data is easier in more suitable languages than C++.
 
 [GetLibs]: https://github.com/martin-eden/Embedded-Framework-GetLibs
 
+[Lua_I2C_Console_Client]: https://github.com/martin-eden/Lua-I2C_Console
 [me_I2C]: https://github.com/martin-eden/Embedded-me_I2C
 [me_Console]: https://github.com/martin-eden/Embedded-me_Console
 [me_Menu]: https://github.com/martin-eden/Embedded-me_Menu
