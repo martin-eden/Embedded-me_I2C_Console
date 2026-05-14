@@ -16,6 +16,23 @@ More important than details is idea.
 Idea is clean ASCII text messages designed to be easy to parse and
 compile by another program. You can still use it manually if you want.
 
+## Demo
+
+![Demo][Image_Demo]
+
+We have sketch on board under device name `/dev/ttyUSB0`.
+We have DS3231 RTC device connected to board via I2C.
+It's main address is `104`.
+
+According to this device protocol, to read data we first need to
+write read position. So we're sending `0` to it.
+
+Then reading `3` bytes.
+
+First three bytes are seconds, minutes and hours in BCD.
+
+To check that seconds are ticking we read again. (Have to write `0` again.)
+
 
 ## Install/remove and requirements
 
@@ -158,6 +175,7 @@ Parsing/compiling binary data is easier in more suitable languages than C++.
 [DeepWiki_Repo]: https://deepwiki.com/martin-eden/Embedded-me_I2C_Console
 
 [Image_Boot]: images/me_I2C_Console.Boot.png
+[Image_Demo]: images/Demo.gif
 
 [binary]: bin/Code.hex
 [bin]: bin/
